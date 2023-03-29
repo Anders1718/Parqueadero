@@ -10,6 +10,7 @@ import Finca.*;
 import InicioPrincipal.ColorFondo;
 import static Turbo.RegistrarRecibo.fecha;
 import static Turbo.RegistrarRecibo.getDaysBetweenDates;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -85,6 +86,7 @@ public class RegistrarMensualidad extends javax.swing.JFrame implements Runnable
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(RegistrarMensualidad.class.getName()).log(Level.SEVERE, null, ex);
             }
+        verificarVencimiento();
         
         modelo.addColumn("ID");
         modelo.addColumn("DOCUMENTO");
@@ -102,6 +104,8 @@ public class RegistrarMensualidad extends javax.swing.JFrame implements Runnable
         jLabelFecha.setText(fecha());
         jLabelHora.setText(horaActual());
         cargarMotos();
+        jTextFieldPlaca.requestFocus();
+        
         
             
        
@@ -314,6 +318,12 @@ public class RegistrarMensualidad extends javax.swing.JFrame implements Runnable
        return formatofecha.format(fecha);
     }
     
+    public static String fechaActual(){
+       Date fecha = new Date();
+       SimpleDateFormat formatofecha = new SimpleDateFormat("YYYY-MM-dd");
+       return formatofecha.format(fecha);
+    }
+    
     public static String horaActual(){
        Date fecha = new Date();
        SimpleDateFormat formatofecha = new SimpleDateFormat("HH:mm");
@@ -332,12 +342,22 @@ public class RegistrarMensualidad extends javax.swing.JFrame implements Runnable
        return formatofecha.format(fecha);
     }
     
+    void verificarVencimiento(){
+        try {
+            con = DriverManager.getConnection(url, user, clave);
+            stmt = con.createStatement();
+            stmt.executeUpdate("UPDATE mensualidad SET activo = 'Vencido' WHERE vencimiento < '"+fechaActual()+"'");
+        } catch (SQLException ex) {
+            Logger.getLogger(ModificarPrecio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     
     void cargarMotos(){
         try {
             con = DriverManager.getConnection(url, user, clave);
             stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM mensualidad");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM mensualidad ORDER BY activo ASC");
             while(rs.next()){
                 datos[0]= rs.getString(1);
                 datos[1]= rs.getString(2);
@@ -348,15 +368,17 @@ public class RegistrarMensualidad extends javax.swing.JFrame implements Runnable
                 datos[6]= rs.getString(7);
                 datos[7]= rs.getString(8);
                 datos[8]= rs.getString(9);
-                nFactura = rs.getString(1); 
-
-
+                nFactura = rs.getString(1);
+                
+               
                 modelo.addRow(datos);
+                
             }
             TablaDatos.setModel(modelo);
         } catch (SQLException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     
     public LocalDate addDays(LocalDate startDate, int numDays) {
@@ -680,7 +702,7 @@ public class RegistrarMensualidad extends javax.swing.JFrame implements Runnable
     }//GEN-LAST:event_jButtonAtras1ActionPerformed
 
     private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
-        InicioTurbo I = new InicioTurbo();
+        InicioParqueadero I = new InicioParqueadero();
         I.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonInicioActionPerformed
@@ -691,7 +713,7 @@ public class RegistrarMensualidad extends javax.swing.JFrame implements Runnable
     }//GEN-LAST:event_TablaDatosMouseClicked
 
     private void jTextFieldPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlacaActionPerformed
-        // TODO add your handling code here:
+        jButtonListo.doClick();
     }//GEN-LAST:event_jTextFieldPlacaActionPerformed
 
     private void jTextFieldPlacaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPlacaKeyTyped

@@ -124,7 +124,7 @@ public void transpareciaBoton(){
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
-        InicioTurbo I = new InicioTurbo();
+        InicioParqueadero I = new InicioParqueadero();
         I.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAtrasActionPerformed

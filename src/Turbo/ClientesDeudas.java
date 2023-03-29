@@ -379,7 +379,7 @@ public class ClientesDeudas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelar1ActionPerformed
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
-        InicioTurbo R = new InicioTurbo();
+        InicioParqueadero R = new InicioParqueadero();
         R.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAtrasActionPerformed

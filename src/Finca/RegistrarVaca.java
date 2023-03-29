@@ -22,7 +22,6 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static jdk.nashorn.internal.parser.DateParser.DAY;
-import static jdk.nashorn.internal.runtime.regexp.joni.constants.TokenType.INTERVAL;
 /**
  *
  * @author User

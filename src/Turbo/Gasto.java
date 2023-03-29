@@ -33,6 +33,7 @@ public class Gasto extends javax.swing.JFrame {
     Connection con;
     Statement stmt;
     ResultSet rs;
+    String datos[] = new String [5]; 
     
     DefaultTableModel modelo = new DefaultTableModel();
     DecimalFormat formatea = new DecimalFormat("###,###.##");
@@ -48,10 +49,15 @@ public class Gasto extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Gasto.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Gasto.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jTextFieldFecha.setText(fecha());
+        modelo.addColumn("ID");
+        modelo.addColumn("DESCRIPCIÓN");
+        modelo.addColumn("FECHA");
+        modelo.addColumn("PRECIO");
+        modelo.addColumn("PROVEEDOR");
         
         buscarProducto();
         
@@ -287,19 +293,7 @@ public class Gasto extends javax.swing.JFrame {
     
     
     void buscarProducto(){
-        
-        modelo.setRowCount(0);
-        
-        modelo.addColumn("ID");
-        modelo.addColumn("DESCRIPCIÓN");
-        modelo.addColumn("FECHA");
-        modelo.addColumn("PRECIO");
-        modelo.addColumn("PROVEEDOR");
-        
-        
-        
-        String datos[] = new String [5]; 
-        
+                  
         try {
             con = DriverManager.getConnection(url, user, clave);
             stmt = con.createStatement();
@@ -323,7 +317,6 @@ public class Gasto extends javax.swing.JFrame {
     
     void refrescarPagina(){
         
-        String datos[] = new String [5]; 
         
      try {
             con = DriverManager.getConnection(url, user, clave);
@@ -397,7 +390,7 @@ public class Gasto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelar1ActionPerformed
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
-        GastosMenu R = new GastosMenu();
+        OpcionesMenu R = new OpcionesMenu();
         R.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAtrasActionPerformed

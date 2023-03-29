@@ -10,7 +10,7 @@ import Finca.Conexion;
 import Finca.InicioFinca;
 import Finca.GastosMenu;
 import Finca.FincaMod;
-import Turbo.InicioTurbo;
+import Turbo.InicioParqueadero;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -76,7 +76,7 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientesActionPerformed
-        InicioTurbo R = new InicioTurbo();
+        InicioParqueadero R = new InicioParqueadero();
         R.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonClientesActionPerformed

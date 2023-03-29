@@ -390,7 +390,7 @@ public class RegistrarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAtras1ActionPerformed
 
     private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
-        InicioTurbo I = new InicioTurbo();
+        InicioParqueadero I = new InicioParqueadero();
         I.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonInicioActionPerformed
@@ -410,7 +410,7 @@ public class RegistrarCliente extends javax.swing.JFrame {
                     stmt = con.createStatement();
                     stmt.executeUpdate("DELETE FROM cliente WHERE id ='"+jLabelId.getText()+"'");
                 } catch (SQLException ex) {
-                    Logger.getLogger(InicioTurbo.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(InicioParqueadero.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 modelo.setRowCount(0);
@@ -433,7 +433,11 @@ public class RegistrarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDocumentoActionPerformed
 
     private void jTextFieldDocumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDocumentoKeyTyped
-        // TODO add your handling code here:
+        char n = evt.getKeyChar();
+        if(n < '0' || n> '9') evt.consume();
+        if(jTextFieldTelefono.getText().length()>= 10){
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextFieldDocumentoKeyTyped
 
     private void jTextFieldPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlacaActionPerformed

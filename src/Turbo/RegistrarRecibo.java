@@ -662,7 +662,7 @@ public class RegistrarRecibo extends javax.swing.JFrame implements Runnable {
                 jLabelTotal.setText(String.valueOf(totalPagar));
                 
                 int imprimir = JOptionPane.showConfirmDialog(null, "Desea imprimir el recibo",
-                "YES_NO_OPTION", JOptionPane.YES_NO_OPTION,
+                "IMPRIMIR", JOptionPane.YES_NO_OPTION,
                 JOptionPane.INFORMATION_MESSAGE);
                 
                 try {
@@ -743,7 +743,7 @@ public class RegistrarRecibo extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_jButtonAtras1ActionPerformed
 
     private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
-        InicioTurbo I = new InicioTurbo();
+        InicioParqueadero I = new InicioParqueadero();
         I.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonInicioActionPerformed

@@ -19,7 +19,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 /**
  *
  * @author User

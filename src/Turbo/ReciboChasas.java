@@ -327,13 +327,13 @@ protected static double toPPI(double inch)
     }//GEN-LAST:event_jButtonListoActionPerformed
 
     private void jButtonAtras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtras1ActionPerformed
-        InicioTurbo I = new InicioTurbo();
+        InicioParqueadero I = new InicioParqueadero();
         I.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAtras1ActionPerformed
 
     private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
-        InicioTurbo I = new InicioTurbo();
+        InicioParqueadero I = new InicioParqueadero();
         I.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonInicioActionPerformed
