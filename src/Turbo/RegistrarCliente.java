@@ -101,7 +101,9 @@ public class RegistrarCliente extends javax.swing.JFrame {
         jLabelPrecio4.setText("PLACA:");
         getContentPane().add(jLabelPrecio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 90, -1));
 
+        jTextFieldPlaca.setBackground(new java.awt.Color(255, 255, 0));
         jTextFieldPlaca.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jTextFieldPlaca.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldPlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPlacaActionPerformed(evt);
@@ -439,7 +441,12 @@ public class RegistrarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPlacaActionPerformed
 
     private void jTextFieldPlacaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPlacaKeyTyped
-        // TODO add your handling code here:
+        char c= evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad=(""+c).toUpperCase();
+            c= cad.charAt(0);
+            evt.setKeyChar(c);
+        }
     }//GEN-LAST:event_jTextFieldPlacaKeyTyped
 
     /**

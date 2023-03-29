@@ -327,7 +327,7 @@ protected static double toPPI(double inch)
     }//GEN-LAST:event_jButtonListoActionPerformed
 
     private void jButtonAtras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtras1ActionPerformed
-        Recibos I = new Recibos();
+        InicioTurbo I = new InicioTurbo();
         I.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAtras1ActionPerformed
